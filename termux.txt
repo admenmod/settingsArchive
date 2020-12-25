@@ -1,0 +1,30 @@
+tree nano git mc tmux zsh vim
+python nodejs
+
+# termux-style
+git clone https://github.com/adi1090x/termux-style && cd termux-style && ./install
+
+# zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# .zshrc
+github() { git clone https://github.com/$1; }
+gitlocal() { git clone --local -- file://$(pwd)/$1; }
+alias gitlog='git log --graph --source --stat'
+alias gitloga='git log --all --graph --source --stat'
+alias tl='tree -La'
+
+# .vimrc
+set number
+set autoindent
+set t_Co=256
+
+syntax on
+
+set termencoding=utf-8
+
+set nobackup
+set noswapfile
+set encoding=utf-8
+
+set ruler
