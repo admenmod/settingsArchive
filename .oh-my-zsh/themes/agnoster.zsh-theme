@@ -276,7 +276,7 @@ add_info() {
 	local tmux_format="$p1$sn$ll$ip$q1$p2$wn$q2"
 	
 
-	[[ "$TERM" == "screen" ]] && prompt_segment black default "$(tmux display -p -F $tmux_format 2> /dev/null)"
+	[[ "$TERM" == "screen"* ]] && prompt_segment black default "$(tmux display -p -F $tmux_format 2> /dev/null)"
   
 	[[ $(jobs -l | wc -l) -gt 0 ]] && prompt_segment black blue 'jobs[%j]'
 	

@@ -104,39 +104,55 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+fpath=($HOME/.mycompletions $fpath)
+
+autoload -U compinit
+compinit
+
+
 setopt HIST_IGNORE_SPACE
 # HISTORY_IGNORE=""
+
+
+eval $(dircolors -b $HOME/.dircolors)
+#LS_COLORS="$(vivid generate nord)"
 
 
 is_tmux() { [[ $TERM == 'screen' ]] }
 
 try_attach_session() {
-	(! is_tmux) && tmux attach -t "$1"
+	(! is_tmux) && tmux attach -t "$1" 2> /dev/null
 	tmux has-session -t "$1" 2> /dev/null
 	return $?
 }
 
 
 run-session() {
-	local name=$([[ -n $1 ]] && echo $1 || ls ~/fsr | grep -E '\.session$' | sed -E 's/\.session//gi' | fzf-tmux)
+	local name=$([[ -n $1 ]] && echo $1 || ls $HOME/fsr | grep -E '\.session$' | sed -E 's/\.session//gi' | fzf-tmux)
 	
-	[[ -n $name ]] && source ~/fsr/$name.session
+	[[ -z $name ]] && return 1
+	[[ -f $HOME/fsr/$name.session ]] && source $HOME/fsr/$name.session || tmux new -d -s "$name"
 };
 
 
 gitcheckout() { git checkout $(git branch -l | awk '{print $1}' | fzf --preview="git log {}") }
 
-qlink() { ln -vs $(pwd) ~/q/$1 }
+qlink() { ln -vs $(pwd) $HOME/q/$1 }
 
 
 alias gitlog='git log --graph --source --date=format:"%a %b %d.%m.%Y %H:%M:%S %z"'
 alias gitloga='git log --all --graph --source --date=format:"%a %b %d.%m.%Y %H:%M:%S %z"'
 
-alias tl='tree -aL'
-alias ls='lsd -AF $LS_OPTIONS'
+alias tl='tree -L'
+alias tla='tree -aL'
+alias ls='lsd -F $LS_OPTIONS'
+alias lsa='lsd -AF $LS_OPTIONS'
 
 alias static-server='http-server -p=3000 -c=0'
 
 
-try_attach_session || run-session main
+# try_attach_session
+
+
+return 0
 

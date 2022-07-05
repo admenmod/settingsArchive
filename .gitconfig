@@ -9,8 +9,10 @@
     colorMoved = default
 [mergetool "vimdiff"]
 	path = nvim
+
 [core]
     pager = delta
+	excludesFile = ~/.gitignore
 [interactive]
     diffFilter = delta --color-only --features=interactive
 [delta]
@@ -27,7 +29,9 @@
     hunk-header-file-style = red
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
+
 [init]
 	defaultBranch = master
 [credential]
 	helper = store
+
