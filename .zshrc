@@ -118,7 +118,7 @@ eval $(dircolors -b $HOME/.dircolors)
 #LS_COLORS="$(vivid generate nord)"
 
 
-is_tmux() { [[ $TERM == 'screen' ]] }
+is_tmux() { [[ $TERM == "screen"* ]] }
 
 try_attach_session() {
 	(! is_tmux) && tmux attach -t "$1" 2> /dev/null

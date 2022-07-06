@@ -5,49 +5,16 @@ local opt = vim.opt
 
 -- main setup
 
---[[
-set number
-set relativenumber
-set autoindent
-set smarttab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set noexpandtab
-set mouse=a
-set t_Co=256
-set inccommand=nosplit
-set completeopt-=preview
-set nobackup
-set nowritebackup
-set noswapfile
-set encoding=utf-8
-set ai
-set nocompatible
-set ttyfast
-set smartindent
-set hidden
-set cursorline
-set colorcolumn=119 "79
-" set updatetime=300
-
-
-set foldnestmax=10
-"set nofoldenable
-set foldlevel=0
-set foldcolumn=3
-set foldmethod=manual
---]]
-
-opt.colorcolumn = '120' --'80'
-opt.cursorline = true
-opt.spelllang= { 'en_us', 'ru' }
 opt.number = true
 opt.relativenumber = true
-opt.so = 0
 opt.undofile = true
+opt.cursorline = true
+opt.colorcolumn = '120' --'80'
+opt.autoindent = true
+opt.so = 0
 opt.splitright = true
 opt.splitbelow = true
+opt.spelllang= { 'en_us', 'ru' }
 
 opt.hidden = true
 opt.mouse = 'a'
@@ -60,10 +27,12 @@ opt.ai = true
 opt.compatible = false
 opt.ttyfast = true
 
+opt.smarttab = true
 opt.smartindent = true
 opt.expandtab = false
-opt.shiftwidth = 4
 opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop=4
 
 -- opt.foldenable = false
 opt.foldnestmax = 10
@@ -75,10 +44,12 @@ opt.foldmethod = 'manual'
 -- opt.listchars:append('eol:↵,tab:│—,multispace:│...,trail:~') --␣
 
 
-opt.termguicolors = true      --  24-bit RGB colors
+opt.termguicolors = true
 opt.pumblend = 15
 
-cmd 'set completeopt-=preview'
+-- vim.o.completeopt = 'menuone,noselect'
+-- vim.o.completeopt = 'longest,menuone'
+-- cmd 'set completeopt-=preview'
 
 -- 'skanehira/translate.vim'
 g.translate_source = 'en'
@@ -380,8 +351,7 @@ lspconfig.sumneko_lua.setup {
 }
 
 
--- vim.o.completeopt = 'menuone,noselect'
--- vim.o.completeopt = 'longest,menuone'
+
 -- luasnip setup
 local luasnip = require('luasnip')
 -- nvim-cmp setup

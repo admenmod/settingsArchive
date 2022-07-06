@@ -1,8 +1,8 @@
 # install
 ```
 tree fzf lsd git git-delta tmux zsh neovim zip nmap
-python nodejs perl docker
-bat dust ranger ffmpeg procs sd fd
+python nodejs perl docker gdb
+bat ripgrep dust ranger ffmpeg procs sd fd
 npm (yarn, http-server, neovim) pip (pynvim)
 ```
 
