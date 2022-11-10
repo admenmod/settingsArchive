@@ -11,7 +11,7 @@ opt.undofile = true
 opt.cursorline = true
 opt.colorcolumn = '120' --'80'
 opt.autoindent = true
-opt.so = 0
+-- opt.so = 999
 opt.splitright = true
 opt.splitbelow = true
 opt.spelllang= { 'en_us', 'ru' }
@@ -65,9 +65,9 @@ g.vscode_transparency = 1
 g.vscode_italic_comment = 0
 
 -- coc.nvim
-cmd([[
-let g:coc_global_extensions = [ 'coc-json', 'coc-markdownlint', 'coc-vimlsp', 'coc-syntax', 'coc-toml', 'coc-yaml', 'coc-explorer', 'coc-sh', 'coc-html', 'coc-css', 'coc-snippets', 'coc-highlight', 'coc-calc', 'coc-tsserver', 'coc-git', 'coc-perl', 'coc-pyright', 'coc-lua', 'coc-fzf-preview', 'coc-rls', 'coc-cl', 'coc-clangd', 'coc-go', 'coc-godot' ]
-]])
+-- cmd([[
+-- let g:coc_global_extensions = [ 'coc-json', 'coc-markdownlint', 'coc-vimlsp', 'coc-syntax', 'coc-toml', 'coc-yaml', 'coc-explorer', 'coc-sh', 'coc-html', 'coc-css', 'coc-snippets', 'coc-highlight', 'coc-calc', 'coc-tsserver', 'coc-git', 'coc-perl', 'coc-pyright', 'coc-lua', 'coc-fzf-preview', 'coc-rls', 'coc-cl', 'coc-clangd', 'coc-go', 'coc-godot' ]
+-- ]])
 
 -- exec vim cmd
 cmd([[
@@ -105,17 +105,6 @@ augroup end
 cmd([[
 syntax enable
 colorscheme vscode
-
-" #aaeeff
-" highlight Folded guibg=#222211 guifg=#aa9977
-
-highlight Folded gui=italic guibg=#222211 guifg=#eecc77
-highlight FoldColumn guifg=#aa7733
-highlight CursorLineNr guifg=#cccc33
-highlight BufferLineBuffer guifg=#6a9955 guibg=#771616
-
-" highlight! link TSVariableBuiltin TSConstructor
-highlight! link TSVariableBuiltin TSKeyword
 ]])
 
 
@@ -164,7 +153,7 @@ require('bufferline').setup {
 		-- NOTE: this plugin is designed with this icon in mind,
 		-- and so changing this is NOT recommended, this is intended
 		-- as an escape hatch for people who cannot bear it for whatever reason
-		indicator_icon = '▎',
+		indicator = { style = 'icon', icon = '▎' },
 		buffer_close_icon = '',
 		modified_icon = '●',
 		close_icon = '',
