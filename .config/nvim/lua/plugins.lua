@@ -28,7 +28,6 @@ end
 return require('packer').startup(function()
 	use { 'wbthomason/packer.nvim', opt = true }
 
-	-- use 'ryanoasis/vim-devicons'
 	use 'kyazdani42/nvim-web-devicons'
 
 
@@ -59,14 +58,7 @@ return require('packer').startup(function()
 		require('telescope').setup()
 	end }
 
-	-- use 'preservim/nerdtree'
-	use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function()
-		require('nvim-tree').setup({}) end
-	}
-
-	use { 'numToStr/Comment.nvim', config = function()
-		require('Comment').setup()
-	end }
+	use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
 	use 'honza/vim-snippets'
 	use 'SirVer/ultisnips'
@@ -77,6 +69,20 @@ return require('packer').startup(function()
 
 	use { 'neoclide/coc.nvim', branch = 'release' }
 
+
+	use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function()
+		require('nvim-tree').setup({}) end
+	}
+
+	-- use {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	branch = "v2.x",
+	-- 	requires = { 
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	}
+	-- }
 
 --[[
 	use 'neovim/nvim-lspconfig'
@@ -96,12 +102,6 @@ return require('packer').startup(function()
 
 
 
-
-
-
-
-
-
 	--[[ cmp - lspconfig
 
 	use 'saadparwaiz1/cmp_luasnip'
@@ -109,5 +109,9 @@ return require('packer').startup(function()
 
 	use 'L3MON4D3/LuaSnip'
 	--]]
+
+	
+	
+	-- use 'purofle/vim-mindustry-logic'
 end)
 
