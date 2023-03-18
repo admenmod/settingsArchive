@@ -1,37 +1,46 @@
 [user]
 	name = admenmod
 	email = admenmod@gmail.com
-[merge]
-	tool = vimdiff
-    conflictstyle = diff3
+
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
     colorMoved = default
-[mergetool "vimdiff"]
-	path = nvim
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+	# cmd = nvim -d -c 'if &diff | wincmd J | endif' \"$LOCAL\" \"$REMOTE\" | nvim -f -c 'DiffOrig $LOCAL' -c 'wincmd p' -
+	keepbackup = false
+	trustexitcode = false
+
+[merge]
+	tool = nvimmerge
+    conflictstyle = diff3
+[mergetool "nvimmerge"]
+	cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -c 'wincmd w' -c 'wincmd J' -c 'wincmd J'
+	trustexitcode = false
 
 [core]
-    pager = delta
+	pager = delta
 	excludesFile = ~/.gitignore
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+	diffFilter = delta --color-only --features=interactive
 [delta]
-    features = decorations
+	features = decorations
 	line-numbers = true
 #	side-by-side = true
 [delta "interactive"]
-    keep-plus-minus-markers = false
+	keep-plus-minus-markers = false
 [delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-style = file line-number syntax
+	commit-decoration-style = blue ol
+	commit-style = raw
+	file-style = omit
+	hunk-header-decoration-style = blue box
+	hunk-header-file-style = red
+	hunk-header-line-number-style = "#067a00"
+	hunk-header-style = file line-number syntax
 
+[safe]
+	directory = /storage/emulated/0/Obsidian
 [init]
 	defaultBranch = master
 [credential]
 	helper = store
-

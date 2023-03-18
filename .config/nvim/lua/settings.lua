@@ -4,7 +4,6 @@ local opt = vim.opt
 
 
 -- main setup
-
 opt.number = true
 opt.relativenumber = true
 opt.undofile = true
@@ -69,8 +68,21 @@ g.vscode_italic_comment = 0
 -- let g:coc_global_extensions = [ 'coc-json', 'coc-markdownlint', 'coc-vimlsp', 'coc-syntax', 'coc-toml', 'coc-yaml', 'coc-explorer', 'coc-sh', 'coc-html', 'coc-css', 'coc-snippets', 'coc-highlight', 'coc-calc', 'coc-tsserver', 'coc-git', 'coc-perl', 'coc-pyright', 'coc-lua', 'coc-fzf-preview', 'coc-rls', 'coc-cl', 'coc-clangd', 'coc-go', 'coc-godot' ]
 -- ]])
 
+
 -- exec vim cmd
-cmd([[
+cmd [[
+"augroup SetWorkdir
+"autocmd!
+"au VimEnter * let g:PATH=getcwd()
+"au BufNewFile,BufRead * cd "${g:PATH}"
+"augroup end
+
+" Определение рабочей директории и установка ее в качестве директории по умолчанию при запуске Nvim
+"autocmd VimEnter * execute "cd ".getcwd()
+"set autochdir
+
+" vim-router
+
 augroup AutoSaveFolds
 autocmd!
 autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
@@ -99,20 +111,51 @@ augroup AutoTSEnable
 autocmd!
 autocmd VimEnter * TSEnable highlight indent incremental_selection
 augroup end
-]])
+]]
 
 -- set theme
-cmd([[
+cmd [[
 syntax enable
 colorscheme vscode
-]])
+]]
 
 
+cmd [[
+let g:rooter_resolve_links = 1
+"let g:session_ignore_patterns = ['\(^.*\/neo-tree\/.*$\)']
+let g:session_autosave = 'no'
 
-require('config/nvim-tree')
+let g:nvim_tree_symlink_arrow = ' ➛ '
+
+let g:neotree_default_open = 1
+let g:neotree_follow_symlink = 1
+let g:neotree_symlink_arrow = '->'
+let g:neotree_file_icon_char_symlink = ''
+
+
+"autocmd VimEnter * call co-neovim#activate()
+]]
+
+
+require('config/Gitsigns')
+require('config/neo-tree')
 require('config/lualine')
 require('config/bufferline')
 require('config/nvim-treesitter')
 
 cmd 'source ~/.config/nvim/lua/config/coc.nvim.vim'
 cmd 'source ~/.config/nvim/lua/config/vim-startify.vim'
+
+-- function! SetDefaultDirectory()
+--  let cwd = getcwd()
+--  if len(cwd) > 0
+--    execute 'cd '.fnameescape(cwd)
+--  endif
+-- endfunction
+-- augroup set_default_directory
+--  autocmd!
+--  autocmd BufNewFile * call SetDefaultDirectory()
+-- augroup END
+--
+-- default_directory
+-- cd "${$NVIM_CWD}"'

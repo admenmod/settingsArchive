@@ -1,3 +1,4 @@
 {
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "sumneko-lua.serverDir": "/data/data/com.termux/files/usr/share/lua-language-server",
 }

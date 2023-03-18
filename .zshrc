@@ -114,7 +114,7 @@ setopt HIST_IGNORE_SPACE
 # HISTORY_IGNORE=""
 
 
-eval $(dircolors -b $HOME/.dircolors)
+# eval $(dircolors -b $HOME/.dircolors)
 #LS_COLORS="$(vivid generate nord)"
 
 
@@ -149,6 +149,9 @@ alias ls='lsd -F $LS_OPTIONS'
 alias lsa='lsd -AF $LS_OPTIONS'
 
 alias static-server='http-server -p=3000 -c=0'
+
+
+alias psptszsh='ps -p $(pidof zsh)'
 
 
 # try_attach_session

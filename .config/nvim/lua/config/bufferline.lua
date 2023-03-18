@@ -1,6 +1,6 @@
 require('bufferline').setup {
 	options = {
-		mode = "buffers", -- "buffers" | set to "tabs" to only show tabpages instead
+		mode = "tabs", -- "buffers" | set to "tabs" to only show tabpages instead
 		numbers = "both", -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
 		close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
 		right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -66,7 +66,7 @@ require('bufferline').setup {
 		separator_style = "slant", -- "slant" | "thick" | "thin" | { 'any', 'any' },
 		enforce_regular_tabs = true, -- false | true,
 		always_show_bufferline = true, -- true | false,
-		sort_by = 'id', --[[ 'insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
+		sort_by = 'tabs', --[[ 'insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
 			-- add custom logic
 			return buffer_a.modified > buffer_b.modified
 		end
