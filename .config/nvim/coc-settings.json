@@ -1,4 +1,13 @@
 {
   "snippets.ultisnips.pythonPrompt": false,
   "sumneko-lua.serverDir": "/data/data/com.termux/files/usr/share/lua-language-server",
+  "sumneko-lua.enableNvimLuaDev": true,
+  "godot.lsp_server_port": 6005,
+  "languageserver": {
+    "godot": {
+      "host": "127.0.0.1",
+      "filetypes": ["gd", "gdscript", "gdscript3"],
+      "port": 6005
+    }
+  }
 }

@@ -1,0 +1,27 @@
+{
+    "workspace.library": [
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/neodev.nvim/types/stable",
+        "/data/data/com.termux/files/usr/share/nvim/runtime/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/opt/packer.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/bufferline.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/coc.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/gitsigns.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/lualine.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/neo-tree.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/neodev.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nui.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-treesitter/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/plenary.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/popup.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua",
+        "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/start/vscode.nvim/lua",
+        "/data/data/com.termux/files/home/workdir/repos/admenmod/co-neovim/lua",
+        "/data/data/com.termux/files/home/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}

@@ -37,7 +37,6 @@ return require('packer').startup(function()
 
 	use 'mbbill/undotree'
 	use 'skanehira/translate.vim'
-	use 'preservim/tagbar'
 	use 'tpope/vim-surround'
 	use 'nvim-lua/popup.nvim'
 	use 'google/vim-searchindex'

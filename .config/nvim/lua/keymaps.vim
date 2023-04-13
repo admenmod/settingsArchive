@@ -8,7 +8,6 @@ nnoremap d<BS> <cmd>bdelete<CR>
 
 nnoremap <C-t> <cmd>Neotree toggle<CR>
 nnoremap <C-l> <cmd>UndotreeToggle<CR>
-nnoremap <C-b> <cmd>TagbarToggle<CR>
 nnoremap <C-h> <cmd>Gitsigns blame_line<CR>
 
 " nnoremap ]<space> @="\"=\"\\"\n"<CR>p
@@ -29,7 +28,8 @@ vmap Y "*y
 vnoremap <leader>y "*y
 nnoremap <leader>p "*p
 
-nnoremap <silent> ,t :tabnew %<CR>
+nnoremap <silent> ,tt :tabnew %<CR>
+nnoremap <silent> ,tr :tabnew #<CR>
 nnoremap <silent> ,cc :cclose<CR>
 nnoremap <silent> ,co :copen<CR>
 
@@ -41,6 +41,7 @@ vmap <C-t> <Plug>(VTranslate)
 nnoremap ,fb <cmd>Telescope buffers<CR>
 nnoremap ,ff <cmd>Telescope find_files<CR>
 nnoremap ,fg <cmd>Telescope live_grep<CR>
+nnoremap ,fs <cmd>Telescope git_status<CR>
 
 " Switch buffers using keys
 nnoremap <silent> [b :bprevious<CR>

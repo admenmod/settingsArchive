@@ -63,6 +63,8 @@ require('gitsigns').setup {
     end, {expr=true})
 
     -- Actions
+    map('n', '<leader>hq', ':Gitsigns setqflist<CR>')
+
     map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
     map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
     map('n', '<leader>hS', gs.stage_buffer)
