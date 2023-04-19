@@ -19,7 +19,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # CocInstall
 ```
-coc-json coc-markdownlint coc-sh coc-html coc-css coc-highlight coc-calc coc-tsserver coc-git coc-perl coc-pyright coc-lua coc-fzf-preview coc-clangd
+coc-json coc-markdownlint coc-sh coc-html coc-css coc-highlight coc-calc coc-tsserver coc-git coc-perl coc-pyright coc-sumneko-lua coc-fzf-preview coc-clangd
 ```
 
 # [coc expressions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
