@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster" # set by `omz`
+# ZSH_THEME="agnoster" # set by `omz`
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -83,6 +91,8 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -104,6 +114,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+export FZF_BASE=/usr/bin/fzf
+
+
+
 fpath=($HOME/.mycompletions $fpath)
 
 autoload -U compinit
@@ -118,20 +132,23 @@ setopt HIST_IGNORE_SPACE
 #LS_COLORS="$(vivid generate nord)"
 
 
-is_tmux() { [[ $TERM == "screen"* ]] }
+is_tmux() { [[ $TMUX ]] }
 
 try_attach_session() {
-	(! is_tmux) && tmux attach -t "$1" 2> /dev/null
-	tmux has-session -t "$1" 2> /dev/null
+	(! is_tmux) && tmux attach -t $1 &> /dev/null
+	tmux has-session -t $1 &> /dev/null
 	return $?
 }
 
-
 run-session() {
 	local name=$([[ -n $1 ]] && echo $1 || ls $HOME/fsr | grep -E '\.session$' | sed -E 's/\.session//gi' | fzf-tmux)
-	
+
 	[[ -z $name ]] && return 1
-	[[ -f $HOME/fsr/$name.session ]] && source $HOME/fsr/$name.session || tmux new -d -s "$name"
+
+	try_attach_session $name ||
+	[[ -f $HOME/fsr/$name.session ]] && source $HOME/fsr/$name.session ||
+	tmux list-sessions &> /dev/null && is_tmux && tmux new-session -d -s $name &> /dev/null ||
+		tmux new-session -s $name &> /dev/null
 };
 
 
@@ -154,8 +171,5 @@ alias static-server='http-server -p=3000 -c=0'
 alias psptszsh='ps -p $(pidof zsh)'
 
 
-# try_attach_session
-
-
-return 0
-
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
