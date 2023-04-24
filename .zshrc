@@ -91,8 +91,11 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
+# export LANG=ru_RU.UTF-8
+# export LC_CTYPE=ru_RU.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -128,8 +131,8 @@ setopt HIST_IGNORE_SPACE
 # HISTORY_IGNORE=""
 
 
-# eval $(dircolors -b $HOME/.dircolors)
-#LS_COLORS="$(vivid generate nord)"
+eval $(dircolors -b $HOME/.dircolors)
+# LS_COLORS="$(vivid generate nord)"
 
 
 is_tmux() { [[ $TMUX ]] }
@@ -145,10 +148,11 @@ run-session() {
 
 	[[ -z $name ]] && return 1
 
-	try_attach_session $name ||
-	[[ -f $HOME/fsr/$name.session ]] && source $HOME/fsr/$name.session ||
-	tmux list-sessions &> /dev/null && is_tmux && tmux new-session -d -s $name &> /dev/null ||
-		tmux new-session -s $name &> /dev/null
+	try_attach_session $name && return 0
+
+	[[ -f $HOME/fsr/$name.session ]] && source $HOME/fsr/$name.session && return 0
+
+	tmux list-sessions &> /dev/null && is_tmux && tmux new-session -d -s $name &> /dev/null || tmux new-session -s $name &> /dev/null
 };
 
 
@@ -162,8 +166,7 @@ alias gitloga='git log --all --graph --source --date=format:"%a %b %d.%m.%Y %H:%
 
 alias tl='tree -L'
 alias tla='tree -aL'
-alias ls='lsd -F $LS_OPTIONS'
-alias lsa='lsd -AF $LS_OPTIONS'
+alias ls='lsd'
 
 alias static-server='http-server -p=3000 -c=0'
 
