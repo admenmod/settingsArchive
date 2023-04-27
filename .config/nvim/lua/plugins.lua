@@ -52,6 +52,8 @@ return require('packer').startup(function()
 
 	use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 	use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+	-- use { 'willothy/nvim-cokeline', requires = 'kyazdani42/nvim-web-devicons' }
+
 
 	-- use { 'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons',
 	-- config = function()
@@ -154,7 +156,7 @@ return require('packer').startup(function()
 	use {
 		'nvim-neo-tree/neo-tree.nvim',
 		branch = 'v2.x',
-		requires = { 
+		requires = {
 			'nvim-lua/plenary.nvim',
 			'kyazdani42/nvim-web-devicons', -- not strictly required, but recommended
 			'MunifTanjim/nui.nvim',
