@@ -81,8 +81,6 @@ cmd [[
 "autocmd VimEnter * execute "cd ".getcwd()
 "set autochdir
 
-" vim-router
-
 augroup AutoSaveFolds
 autocmd!
 autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
@@ -122,6 +120,8 @@ colorscheme vscode
 
 cmd [[
 let g:rooter_resolve_links = 1
+let g:rooter_patterns = ['.git'] " ['.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json']
+
 "let g:session_ignore_patterns = ['\(^.*\/neo-tree\/.*$\)']
 let g:session_autosave = 'no'
 
