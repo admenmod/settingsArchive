@@ -1,6 +1,6 @@
 nnoremap <leader>l :nohlsearch<CR>
 vnoremap <leader>/ y/\\V<C-r>"<CR>
-nnoremap <leader>s :%s/\v\s+$//g<CR>
+nnoremap <leader>s <cmd>%s/\v\s+$//g<CR><cmd>nohlsearch<CR>
 
 nnoremap [o <cmd>bprevious<CR>
 nnoremap ]o <cmd>bnext<CR>

@@ -40,10 +40,12 @@ opt.foldcolumn = '3'
 opt.foldmethod = 'manual'
 
 -- opt.list = true
--- opt.listchars:append('eol:↵,tab:│—,multispace:│...,trail:~') --␣
-
-
+-- opt.listchars:append('tab:├──,multispace:▕...,trail:~') --␣ ░ ▒ ▓  █   ▁▂▃▄▅▆▇█▉▊▋▌▍▎▏▐░▒▓▔▕𝌴 │
+-- opt.listchars:append('tab:  ▕,trail:␣') --␣ ░ ▒ ▓  █   ▁▂▃▄▅▆▇█▉▊▋▌▍▎▏▐░▒▓▔▕𝌴
+-- opt.listchars:append('eol:↵,tab:│ ,multispace:│...,trail:~') --␣
+-- opt.listchars:append('tab:   ,trail:␣')
 opt.termguicolors = true
+
 opt.pumblend = 15
 
 -- vim.o.completeopt = 'menuone,noselect'
@@ -119,11 +121,14 @@ colorscheme vscode
 
 
 cmd [[
+" set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize,terminal
+set sessionoptions=blank,buffers,curdir,help,tabpages,winsize,terminal
+
 let g:rooter_resolve_links = 1
 let g:rooter_patterns = ['.git'] " ['.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json']
 
 "let g:session_ignore_patterns = ['\(^.*\/neo-tree\/.*$\)']
-let g:session_autosave = 'no'
+"let g:session_autosave = 'no'
 
 let g:nvim_tree_symlink_arrow = ' ➛ '
 
