@@ -71,76 +71,7 @@ g.vscode_italic_comment = 0
 -- ]])
 
 
--- exec vim cmd
-cmd [[
-"augroup SetWorkdir
-"autocmd!
-"au VimEnter * let g:PATH=getcwd()
-"au BufNewFile,BufRead * cd "${g:PATH}"
-"augroup end
-
-" Определение рабочей директории и установка ее в качестве директории по умолчанию при запуске Nvim
-"autocmd VimEnter * execute "cd ".getcwd()
-"set autochdir
-
-augroup AutoSaveFolds
-autocmd!
-autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
-autocmd BufWinEnter ?* silent! loadview
-augroup end
-
-
-"SAVEING ~/.UNDODIR
-if has("persistent_undo")
-	let target_path = expand('~/.undodir')
-
-	if !isdirectory(target_path)
-		call mkdir(target_path, 'p', 0700)
-	endif
-
-	let &undodir=target_path
-	set undofile
-endif
-
-augroup YankHighlight
-autocmd!
-autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
-augroup end
-
-augroup AutoTSEnable
-autocmd!
-autocmd VimEnter * TSEnable highlight indent incremental_selection
-augroup end
-]]
-
--- set theme
-cmd [[
-syntax enable
-colorscheme vscode
-]]
-
-
-cmd [[
-" set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize,terminal
-set sessionoptions=blank,buffers,curdir,help,tabpages,winsize,terminal
-
-let g:rooter_resolve_links = 1
-let g:rooter_patterns = ['.git'] " ['.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json']
-
-"let g:session_ignore_patterns = ['\(^.*\/neo-tree\/.*$\)']
-"let g:session_autosave = 'no'
-
-let g:nvim_tree_symlink_arrow = ' ➛ '
-
-let g:neotree_default_open = 1
-let g:neotree_follow_symlink = 1
-let g:neotree_symlink_arrow = '->'
-let g:neotree_file_icon_char_symlink = ''
-
-
-"autocmd VimEnter * call co-neovim#activate()
-]]
-
+cmd [[ source ~/.config/nvim/lua/settings.vim ]]
 
 require('config/Gitsigns')
 require('config/neo-tree')
@@ -150,17 +81,3 @@ require('config/nvim-treesitter')
 
 cmd 'source ~/.config/nvim/lua/config/coc.nvim.vim'
 cmd 'source ~/.config/nvim/lua/config/vim-startify.vim'
-
--- function! SetDefaultDirectory()
---  let cwd = getcwd()
---  if len(cwd) > 0
---    execute 'cd '.fnameescape(cwd)
---  endif
--- endfunction
--- augroup set_default_directory
---  autocmd!
---  autocmd BufNewFile * call SetDefaultDirectory()
--- augroup END
---
--- default_directory
--- cd "${$NVIM_CWD}"'
