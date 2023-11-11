@@ -134,6 +134,7 @@ return require('packer').startup(function()
 		})
 	end }
 
+	use 'folke/todo-comments.nvim'
 	use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
 	use 'honza/vim-snippets'

@@ -42,6 +42,7 @@ nnoremap ,fb <cmd>Telescope buffers<CR>
 nnoremap ,ff <cmd>Telescope find_files<CR>
 nnoremap ,fg <cmd>Telescope live_grep<CR>
 nnoremap ,fs <cmd>Telescope git_status<CR>
+nnoremap ,ft <cmd>Telescope todo-comments<CR>
 
 " Switch buffers using keys
 nnoremap <silent> [b :bprevious<CR>

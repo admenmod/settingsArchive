@@ -78,6 +78,7 @@ require('config/neo-tree')
 require('config/lualine')
 require('config/bufferline')
 require('config/nvim-treesitter')
+require('config/todo-comments')
 
 cmd 'source ~/.config/nvim/lua/config/coc.nvim.vim'
 cmd 'source ~/.config/nvim/lua/config/vim-startify.vim'
