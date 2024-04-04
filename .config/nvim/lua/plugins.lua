@@ -146,6 +146,7 @@ return require('packer').startup(function()
 	use 'lewis6991/gitsigns.nvim'
 
 	use { 'nvim-treesitter/nvim-treesitter', run = 'TSUpdate' }
+	use { 'nvim-treesitter/playground' }
 
 	use { 'neoclide/coc.nvim', branch = 'release' }
 
