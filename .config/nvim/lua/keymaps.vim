@@ -64,3 +64,8 @@ nnoremap <silent> [l :lprevious<CR>
 nnoremap <silent> ]l :lnext<CR>
 nnoremap <silent> [L :lfirst<CR>
 nnoremap <silent> ]L :llast<CR>
+
+nnoremap <silent> <C-p> <cmd>b #<CR><cmd>bd #<CR>
+
+
+map! <F11> <Nop>;

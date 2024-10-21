@@ -53,7 +53,7 @@ colorscheme vscode
 set sessionoptions=blank,buffers,curdir,help,tabpages,winsize,terminal
 
 let g:rooter_resolve_links = 1
-let g:rooter_patterns = ['.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json']
+let g:rooter_patterns = ['package.json', 'Makefile', '.git', '_darcs', '.hg', '.bzr', '.svn']
 
 "let g:session_ignore_patterns = ['\(^.*\/neo-tree\/.*$\)']
 "let g:session_autosave = 'no'
